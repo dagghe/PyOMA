@@ -22,6 +22,7 @@ Parameters for FDD in stage 1:
 
 How to launch:
 python3 PyOMA.py fileName fdd stage Fs q nSec
+
 Example:
 python3 PyOMA.py testData.txt fdd 1 1200 2 30
 
@@ -34,6 +35,7 @@ Parameters for FDD in stage 2:
  
 How to launch:
 python3 PyOMA.py fileName fdd stage Fs q nSec x
+
 Example:
 python3 PyOMA.py testData.txt fdd 2 1200 2 30 62.2
 
