@@ -27,6 +27,8 @@ _file = str(sys.argv[1]) # Selezionare l'indice del file d'interesse
 antype = str(sys.argv[2]) #seleziono il tipo: fdd efdd SSI
 stage = str(sys.argv[3]) #stage: 1 o 2
 
+
+
 # =============================================================================
 _title= _file.rsplit('\\')[-1]  # crea una variable per il titolo (nome del file) 
 _title= _title.rsplit('.')[0]
