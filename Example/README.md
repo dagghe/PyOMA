@@ -32,7 +32,7 @@ pd.read\_csv function, to correctly read and import the data file).
 
 ```python
 
-\# Import modules
+# Import modules
 
 import pyOMA as OMA
 
@@ -42,29 +42,33 @@ import pandas as pd
 
 from scipy import signal
 
-\# open the file with pandas and create a dataframe
+# open the file with pandas and create a dataframe
 
 data = pd.read\_csv(r"C:\\Path to the file\\5DOF_100Hz_60min.txt", header=None,
 sep="\\t", index_col=False)
 
 data = np.array(data)
 
+```
+
 We need then to provide the sampling frequency. We can also detrend and/or
 decimate the signal using standard scypy.signal functions:
 
-\# Sampling frequency
+```python
 
-fs = 100 \# [Hz] Sampling Frequency
+# Sampling frequency
 
-q = 5 \# Decimation factor
+fs = 100 # [Hz] Sampling Frequency
 
-\# Detrend and decimate
+q = 5 # Decimation factor
+
+# Detrend and decimate
 
 data = signal.detrend(data, axis=0) \# Rimozione trend
 
 data = signal.decimate(data, q, ftype='fir', axis=0) \# Decimazione segnale
 
-fs = fs/q \# [Hz] Decimated sampling frequency
+fs = fs/q # [Hz] Decimated sampling frequency
 
 ```
 
