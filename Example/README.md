@@ -64,9 +64,9 @@ q = 5 # Decimation factor
 
 # Detrend and decimate
 
-data = signal.detrend(data, axis=0) \# Rimozione trend
+data = signal.detrend(data, axis=0) # Rimozione trend
 
-data = signal.decimate(data, q, ftype='fir', axis=0) \# Decimazione segnale
+data = signal.decimate(data, q, ftype='fir', axis=0) # Decimazione segnale
 
 fs = fs/q # [Hz] Decimated sampling frequency
 
@@ -97,7 +97,7 @@ in the interactive plot.
 
 # Define list/array with the peaks identified from the plot
 
-FreQ = [0.89, 2.6, 4.07, 5.23, 5.9] \# identified peaks
+FreQ = [0.89, 2.6, 4.07, 5.23, 5.9] # identified peaks
 
 ```
 
@@ -141,7 +141,7 @@ Res_EFDD[‘Damping’] = [2.76%, 2.18%, 2.20%, 2.42%, 2.45%]
 
 Res_FSDD[‘Damping’] = [2.47%, 1.64%, 1.72%, 2.05%, 2.22%]
 
-Res\_FDD[‘Mode Shapes’] =
+Res_FDD[‘Mode Shapes’] =
 
 | 0.2755 | 0.7494  | 1       | 0.9267  | 0.4923  |
 |--------|---------|---------|---------|---------|
@@ -150,7 +150,7 @@ Res\_FDD[‘Mode Shapes’] =
 | 0.9230 | -0.2883 | -0.5510 | 1       | -0.7430 |
 | 1      | -0.9139 | 0.7614  | -0.5425 | 0.2983  |
 
-Res\_EFDD[‘Mode Shapes’] =
+Res_EFDD[‘Mode Shapes’] =
 
 | 0.2682 | 0.7544  | 1       | 0.9141  | 0.4985  |
 |--------|---------|---------|---------|---------|
@@ -159,7 +159,7 @@ Res\_EFDD[‘Mode Shapes’] =
 | 0.9012 | -0.2733 | -0.5418 | 1       | -0.7522 |
 | 1      | -0.8631 | 0.7548  | -0.5450 | 0.2845  |
 
-Res\_FSDD[‘Mode Shapes’] =
+Res_FSDD[‘Mode Shapes’] =
 
 | 0.2770 | 0.7559  | 1       | 0.9254  | 0.5203  |
 |--------|---------|---------|---------|---------|
