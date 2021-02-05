@@ -71,6 +71,8 @@ Example:
 python3 PyOMA.py testData.txt fdd 2 1200 2 30 62.2
 
 
+# Function Description
+
 # pyOMA.SSIcovStaDiag
 
 **SSIcovStaDiag**(*data, fs, br, [ordmax=[None], lim=[(0.01,0.05,0.02,0.1)],
