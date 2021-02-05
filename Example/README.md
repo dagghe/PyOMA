@@ -5,6 +5,8 @@ Let us consider a 5 Degrees of Freedom (DOF) shear type frame with lumped mass m
 all stories. Solving the eigenvalue problem gives the natural frequencies of the
 system:
 
+![title](Images/image001.png)
+
 And the (unity normalised) mode shapes:
 
 Assuming Rayleigh damping (C=aM+bK) with a=0.2 and b=0.001 we get the following
