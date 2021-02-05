@@ -191,13 +191,16 @@ to the natural frequencies, will eventually align, for increasing model order.
 The required parameters by the functions are: “data” = the (ndat x nch) array of
 measurements; “fs” = the sampling frequency; “br” = the number of block rows.
 
-\# Run SSI
+```python
+# Run SSI
 
 br = 5
 
 SSIcov= OMA.SSIcovStaDiag(data fs, br)
 
 SSIdat = OMA.SSIdatStaDiag(data, fs, br)
+
+```
 
 ![title](Images/image013.png)![title](Images/image015.png)
 
@@ -207,13 +210,16 @@ model order, then we can use the parameter “ordmax”, which by default is kep
 the maximum allwable model order, ordmax= nch x br, where nch is the number of
 channels.
 
-\# Run SSI
+```python
+# Run SSI
 
 br = 10
 
 SSIcov= OMA.SSIcovStaDiag(data, fs, br, ordmax=25)
 
 SSIdat = OMA.SSIdatStaDiag(data, fs, br, ordmax=25)
+
+```
 
 ![title](Images/image017.png)![title](Images/image019.png)
 
@@ -222,9 +228,11 @@ The aligned green dots are the stable poles of the system, which are an estimate
 of the natural frequencies. To help the identification of the stable poles the
 mplcursors.cursor() function is used in the interactive plot.
 
-\# Define list/array with the aligned poles identified from the plot
+```python
+# Define list/array with the aligned poles identified from the plot
 
-FreQ = [0.89, 2.59, 4.07, 5.22, 5.92] \# identified poles
+FreQ = [0.89, 2.59, 4.07, 5.22, 5.92] # identified poles
+```
 
 We can now run the function OMA.SSIModEX, that will return a dictionary that
 contains the results of the identification in terms of modal properties (natural
@@ -233,7 +241,8 @@ are: “FreQ” = the list of stable poles previously identified in the
 Stabilization Diagram plot; “Results” = the dictionary of results returned by
 OMA.SSIcovStaDiag and/or OMA.SSIdatStaDiag.
 
-\# Extract the modal properties
+```python
+# Extract the modal properties
 
 Res_SSIcov = OMA.SSIModEX(FreQ, SSIcov[1])
 
@@ -242,15 +251,15 @@ Res_SSIdat= OMA.SSIModEX(FreQ, SSIdat[1])
 We can now see the results of the identification by inspecting the results
 dictionaries:
 
-Res\_SSIcov[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
+Res_SSIcov[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
 
-Res\_SSIdat[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
+Res_SSIdat[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
 
-Res\_SSIcov[‘Damping’] = [2.26%, 1.46%, 1.69%, 1.91%, 2.12%]
+Res_SSIcov[‘Damping’] = [2.26%, 1.46%, 1.69%, 1.91%, 2.12%]
 
-Res\_SSIdat[‘Damping’] = [2.38%, 1.45%, 1.72%, 1.94%, 2.13%]
+Res_SSIdat[‘Damping’] = [2.38%, 1.45%, 1.72%, 1.94%, 2.13%]
 
-Res\_SSIcov[‘Mode Shapes’] =
+Res_SSIcov[‘Mode Shapes’] =
 
 | 0.2786 | 0.7548  | 1       | 0.9372  | 0.5385  |
 |--------|---------|---------|---------|---------|
@@ -259,7 +268,7 @@ Res\_SSIcov[‘Mode Shapes’] =
 | 0.9297 | -0.2779 | -0.5520 | 1       | -0.7571 |
 | 1      | -0.9148 | 0.7708  | -0.5468 | 0.2852  |
 
-Res\_SSIdat[‘Mode Shapes’] =
+Res_SSIdat[‘Mode Shapes’] =
 
 | 0.2771 | 0.7595  | 1       | 0.9255  | 0.5385  |
 |--------|---------|---------|---------|---------|
@@ -267,3 +276,4 @@ Res\_SSIdat[‘Mode Shapes’] =
 | 0.7671 | 0.5413  | -0.9200 | -0.2851 | 1       |
 | 0.9049 | -0.2785 | -0.5497 | 1       | -0.7630 |
 | 1      | -0.9204 | 0.7671  | -0.5432 | 0.2857  |
+```
