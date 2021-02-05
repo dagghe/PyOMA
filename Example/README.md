@@ -30,6 +30,8 @@ array with “ndat = number of data point” rows, and “nch = number of channe
 columns. (N.B. be careful to the parameters “header” and “sep” in the
 pd.read\_csv function, to correctly read and import the data file).
 
+```python
+
 \# Import modules
 
 import pyOMA as OMA
@@ -63,6 +65,8 @@ data = signal.detrend(data, axis=0) \# Rimozione trend
 data = signal.decimate(data, q, ftype='fir', axis=0) \# Decimazione segnale
 
 fs = fs/q \# [Hz] Decimated sampling frequency
+
+```
 
 We are now ready to execute the identifications algorithms onto the data.
 
