@@ -81,9 +81,11 @@ We start by running OMA.FDDsvp to perform the Frequency Domain Decomposition
 Spectral Density (PSD) matrix, and a dictionary that contains the results that
 will be processed later to extract the modal properties.
 
-\# Run FDD
+```python
+# Run FDD
 
 FDD = OMA.FDDsvp(data, fs)
+```
 
 ![title](Images/image007.png)
 
@@ -91,9 +93,13 @@ The peaks in the plot are an estimate to the natural frequencies of the system.
 To help the identification of the peaks the mplcursors.cursor() function is used
 in the interactive plot.
 
-\# Define list/array with the peaks identified from the plot
+```python
+
+# Define list/array with the peaks identified from the plot
 
 FreQ = [0.89, 2.6, 4.07, 5.23, 5.9] \# identified peaks
+
+```
 
 We can now run OMA.FDDmodEX and/or OMA.EFDDmodEX to extract the modal
 information according to the “FDD method” and/or the “Enhanced-FDD (EFDD)
@@ -112,7 +118,9 @@ required parameters by the functions are: “FreQ” = the list of peaks previou
 identified in the SV plot; “Results” = the dictionary of results returned by
 OMA.FDDsvp.
 
-\# Extract the modal properties
+```python
+
+# Extract the modal properties
 
 Res_FDD = OMA.FDDmodEX(FreQ, FDD[1])
 
@@ -159,6 +167,8 @@ Res\_FSDD[‘Mode Shapes’] =
 | 0.7680 | 0.5384  | -0.9104 | -0.2878 | 1       |
 | 0.9206 | -0.2775 | -0.5464 | 1       | -0.7594 |
 | 1      | -0.9017 | 0.7630  | -0.5441 | 0.2861  |
+
+```
 
 The EFDDmodEX function will also return one plot for each element of FreQ,
 showing: the identified Single DOF bell function associated to a dominating
