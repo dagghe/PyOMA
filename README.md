@@ -38,6 +38,10 @@ To install PyOMA, you need to run the following commands:
  - seaborn (https://seaborn.pydata.org/)
  - mplcursors (https://mplcursors.readthedocs.io/en/stable/)
 
+
+# Workflow
+
+Qui andrà il diagramma di flusso su come usarlo
  
 
 # Function Description
