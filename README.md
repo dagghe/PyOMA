@@ -56,17 +56,27 @@ To install PyOMA, you need to run the following commands:
 ![title](Images/Flowchart.png)
 
 FDD:
+
 	1 run FDDsvp
+	
 		2a run FDDmodEX to run original FDD
+		
 		and/or
+		
 		2b run EFDDmodEX(method='EFDD') to run EFDD
+		
 		and/or
+		
 		2c run EFDDmodEX(method='FSDD') to run FSDD
 
 SSI
+
 	1.1 run SSIcovStaDiag 
+	
 		2 run SSImodEX to run cov-SSI
+		
 	1.2 run SSIdatStaDiag 
+	
 		2 run SSImodEX to run dat-SSI 
 
 # Function Description
