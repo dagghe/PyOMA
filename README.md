@@ -75,7 +75,7 @@ SSI
 		
 		2. run SSImodEX to run cov-SSI
 
-		and/or
+			and/or
 
 	1.b run SSIdatStaDiag 
 		
