@@ -28,7 +28,7 @@ PyOMA include the following algorithms:
 	2b. Data-driven Stochastic Subspace Identification (dat-SSI)	
 	
 
-
+To better untersdand the workflow of the functions, see the workflow [here](https://github.com/dagghe/PyOMA#workflow).
 
 
 ## Installing PyOMA
