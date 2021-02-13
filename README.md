@@ -1,6 +1,7 @@
 
 # PyOMA
 This software was created to perform output-only modal identification (Operational Modal Analysis, OMA).
+
 OMA allows the experimental estimation of the modal parameters (natural frequencies, mode shapes, damping ratios) of a structure from measurements of the vibration response in operational condition.
 
 
@@ -9,14 +10,23 @@ OMA allows the experimental estimation of the modal parameters (natural frequenc
 
 ## What is PyOMA?
 PyOMA is a python module that allows to perform OMA on ambient vibration measurments datasets.
+
 PyOMA include the following algorithms:
+
 1. Frequency Domain Decomposition (FDD)
+
 	1a. Original Frequency Domain Decomposition (FDD)
+	
 	2a. Enhanced Frequency Domain Decomposition (EFDD)
+	
 	3a. Frequency Spatial Domain Decomposition (FSDD)
+	
 2. Stochastic Subspace Identification (SSI)
+
 	2a. Covariance-driven Stochastic Subspace Identification (cov-SSI)
+	
 	2b. Data-driven Stochastic Subspace Identification (dat-SSI)	
+	
 
 
 
