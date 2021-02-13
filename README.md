@@ -1,20 +1,22 @@
 
 # PyOMA
-This software was created for ................. and various images
+This software was created to perform output-only modal identification (Operational Modal Analysis, OMA).
+OMA allows the experimental estimation of the modal parameters (natural frequencies, mode shapes, damping ratios) of a structure from measurements of the vibration response in operational condition.
 
 
 
 
 
 ## What is PyOMA?
-PyOMA is a powerful software that does ....... bla bla
-
-PyOMA includes complex algorithms that allows to calculate the following: 
-
- 1. FDD - Frequency Domain Decomposition
- 2. eFDD - Enhanced Frequency Domain Decomposition
- 3. SSI-cov - Covariance Driven Stochastic Sub-space Identification
-
+PyOMA is a python module that allows to perform OMA on ambient vibration measurments datasets.
+PyOMA include the following algorithms:
+1. Frequency Domain Decomposition (FDD)
+	1a. Original Frequency Domain Decomposition (FDD)
+	2a. Enhanced Frequency Domain Decomposition (EFDD)
+	3a. Frequency Spatial Domain Decomposition (FSDD)
+2. Stochastic Subspace Identification (SSI)
+	2a. Covariance-driven Stochastic Subspace Identification (cov-SSI)
+	2b. Data-driven Stochastic Subspace Identification (dat-SSI)	
 
 
 
@@ -41,8 +43,21 @@ To install PyOMA, you need to run the following commands:
 
 # Workflow
 
-Qui andrà il diagramma di flusso su come usarlo
- 
+![title](Images/Flowchart.png)
+
+FDD:
+	1 run FDDsvp
+		2a run FDDmodEX to run original FDD
+		and/or
+		2b run EFDDmodEX(method='EFDD') to run EFDD
+		and/or
+		2c run EFDDmodEX(method='FSDD') to run FSDD
+
+SSI
+	1.1 run SSIcovStaDiag 
+		2 run SSImodEX to run cov-SSI
+	1.2 run SSIdatStaDiag 
+		2 run SSImodEX to run dat-SSI 
 
 # Function Description
 
