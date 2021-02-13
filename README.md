@@ -71,13 +71,13 @@ FDD:
 
 SSI
 
-	1.1 run SSIcovStaDiag 
+	1.a run SSIcovStaDiag 
 		
 		2. run SSImodEX to run cov-SSI
 
 		and/or
 
-	1.2 run SSIdatStaDiag 
+	1.b run SSIdatStaDiag 
 		
 		2. run SSImodEX to run dat-SSI 
 
