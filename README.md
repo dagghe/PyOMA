@@ -7,7 +7,6 @@ OMA allows the experimental estimation of the modal parameters (natural frequenc
 
 
 
-
 ## What is PyOMA?
 PyOMA is a python module that allows to perform OMA on ambient vibration measurments datasets.
 
