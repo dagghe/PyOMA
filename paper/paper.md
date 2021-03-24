@@ -35,11 +35,28 @@ mode shapes and damping ratios) of a structure from ambient vibration tests.
 In these tests the structure is under its operating conditions (hence the name), 
 the input excitation is neither known or controlled, but assumed to be 
 'broadband random'. Ambient vibration tests have both practical and economical 
-advantage over free vibration or forced vibration tests (with known input), 
-especially for civil engineering structures (e.g., buildings, bridges).
+advantages over free vibration or forced vibration tests (with known input), 
+especially for civil engineering structures (e.g., buildings, bridges) 
+[@brincker2015introduction], [@rainieri2014operational].
 
 # Statement of Need
-[@peeters2000system]
+
+By measuring and understanding the modal parameters, engineers can design 
+structures, machines and devices that perform better, last longer, and are 
+more comfortable for their users or occupants. There are currently some 
+commercial software packages, and a Matlab toolbox, that offer OMA procedures. 
+However, being proprietary software, these are closed environments that are sold 
+at high prices. 
+
+PyOMA is an open source Python module that allows to perform OMA procedures on 
+ambient vibration datasets. The module offers the following identification 
+algorithms:
+- **Frequency Domain Decomposition** [@brincker2001modal];
+- **Enhanced Frequency Domain Decomposition** [brincker2001damping];
+- **Frequency Spatial Domain Decomposition** [@zhang2010frequency];
+- **Covariance driven Stochastic Subspace Identification** [@peeters1999reference];
+- **Data driven Stochastic Subspace Identification** [@van2012subspace]
+
 
 # Acknowledgements
 
