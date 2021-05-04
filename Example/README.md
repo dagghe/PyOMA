@@ -182,7 +182,7 @@ Res_FSDD[‘Mode Shapes’] =
 
 ```
 
-Now, let's have some plot of our data.
+Now, let's plot our data.
 
 ```python
 
