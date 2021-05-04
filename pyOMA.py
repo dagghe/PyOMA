@@ -57,7 +57,7 @@ def Exdata():
     This function generates a time history of acceleration for a 5 DOF
     system.
     
-    The function returns a (180001,5) array and a tuple containing: the 
+    The function returns a (360001,5) array and a tuple containing: the 
     natural frequencies of the system (fn = (5,) array); the unity 
     displacement normalised mode shapes matrix (FI_1 = (5,5) array); and the 
     damping ratios (xi = float)
@@ -75,7 +75,7 @@ def Exdata():
     
     rng = np.random.RandomState(12345) # Set the seed
     fs = 100 # [Hz] Sampling freqiency
-    T = 3600 # [sec] Period of the time series (30 minutes)
+    T = 3600 # [sec] Period of the time series (60 minutes)
     
     dt = 1/fs # [sec] time resolution
     df = 1/T # [Hz] frequency resolution
