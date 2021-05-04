@@ -104,10 +104,10 @@ FreQ = [0.89, 2.6, 4.1, 5.27, 6] # identified peaks
 
 ```
 
-We can now run OMA.FDDmodEX and/or OMA.EFDDmodEX to extract the modal
+We can now run oma.FDDmodEX and/or oma.EFDDmodEX to extract the modal
 information according to the “FDD method” and/or the “Enhanced-FDD (EFDD)
 method” respectively. All “modEX” functions return a dictionary that contains
-the results of the identification in terms of modal properties. The OMA.FDDmodEX
+the results of the identification in terms of modal properties. The oma.FDDmodEX
 function will only extract the natural frequency and the mode shape, according
 to the original FDD algorithm as presented in (Brincker & ventura). The
 EFDDmodEX function has two methods that can be selected. Method ‘EFDD’ extracts
@@ -119,7 +119,7 @@ isolates the modal coordinates by modal filtering and provides enhanced output
 PSD estimates, which in return yield better autocorrelation functions. The
 required parameters by the functions are: “FreQ” = the list of peaks previously
 identified in the SV plot; “Results” = the dictionary of results returned by
-OMA.FDDsvp.
+oma.FDDsvp.
 
 ```python
 
@@ -127,6 +127,15 @@ OMA.FDDsvp.
 Res_FDD = oma.FDDmodEX(FreQ, FDD[1])
 Res_EFDD = oma.EFDDmodEX(FreQ, FDD[1], method='EFDD')
 Res_FSDD = oma.EFDDmodEX(FreQ, FDD[1], method='FSDD', npmax = 35, MAClim=0.95, plot=True)
+
+# Run SSI
+br = 15
+SSIcov= oma.SSIcovStaDiag(data, fs, br)
+SSIdat = oma.SSIdatStaDiag(data, fs, br, ordmax=60, lim=(0.01, 0.05, 0.02, 0.1)) 
+
+# Extract the modal properties
+Res_SSIcov = oma.SSIModEX(FreQ, SSIcov[1])
+Res_SSIdat= oma.SSIModEX(FreQ, SSIdat[1])
 ```
 
 We can now see the results of the identification by inspecting the results
@@ -173,110 +182,43 @@ Res_FSDD[‘Mode Shapes’] =
 
 ```
 
-The EFDDmodEX function will also return one plot for each element of FreQ,
-showing: the identified Single DOF bell function associated to a dominating
-frequency, the autocorrelation function of the SDOF bell function, the portion
-of the autocorrelation function used to estimate the modal properties, and
-finally the fit on the selected portion of data.
+Now, let's have some plot of our data.
+
+```python
+
+# =============================================================================
+# Make some plots
+# =============================================================================
+MS_EFDD = Res_EFDD['Mode Shapes']
+MS_FSDD = Res_FSDD['Mode Shapes']
+MS_SSIcov = Res_SSIcov['Mode Shapes']
+MS_SSIdat = Res_SSIdat['Mode Shapes']
+_nch = data.shape[1]
+
+MAC = np.reshape(
+        [oma.MaC(FI_ex[:,l], MS_FSDD[:,k]).real for k in range(_nch) for l in range(_nch)], # (_nch*_nch) list of MAC values 
+        (_nch, _nch)) # new (real) shape (_nch x _nch) of the MAC matrix
+
+autoMAC = np.reshape(
+        [oma.MaC(MS_SSIcov[:,l], MS_SSIdat[:,k]).real for k in range(_nch) for l in range(_nch)], # (_nch*_nch) list of MAC values 
+        (_nch,_nch)) # new (real) shape (_nch x _nch) of the MAC matrix
+
+col = ["mode I", "mode II", "mode III", "mode IV", "mode V"]
+
+MAC = pd.DataFrame(MAC, columns=col, index=col)
+autoMAC = pd.DataFrame(autoMAC, columns=col, index=col)
+
+fig, ax = plt.subplots()
+sns.heatmap(MAC,cmap="jet",ax=ax,annot=True, fmt='.3f',)
+fig.tight_layout()
+plt.show()
+
+fig, ax1 = plt.subplots()
+sns.heatmap(autoMAC,cmap="jet", ax=ax1, annot=True, fmt='.3f',)
+fig.tight_layout()
+plt.show()
+
+```
 
 ![title](Images/image009.png)![title](Images/image011.png)
 
-
-# Identification – Time Domain
-
-To perform the identification in the time domain we have two option. The
-functions OMA.SSIcovStaDiag and OMA.SSIdatStaDiag will run the “Covariance
-driven Stochastic Sub-space Identification” algorithm and the “Data driven
-Stochastic Sub-space Identification” algorithm , respectively (see Peeters, Van
-come cazzo si chiama, Rainieri e Fabbrocino). Both functions will return a
-Stabilization Diagram plot, where the stable poles of the system, corresponding
-to the natural frequencies, will eventually align, for increasing model order.
-The required parameters by the functions are: “data” = the (ndat x nch) array of
-measurements; “fs” = the sampling frequency; “br” = the number of block rows.
-
-```python
-# Run SSI
-
-br = 5
-
-SSIcov= OMA.SSIcovStaDiag(data fs, br)
-
-SSIdat = OMA.SSIdatStaDiag(data, fs, br)
-
-```
-
-![title](Images/image013.png)![title](Images/image015.png)
-
-
-We may want to increase the number of block rows, but keep a certain maximum
-model order, then we can use the parameter “ordmax”, which by default is kept to
-the maximum allwable model order, ordmax= nch x br, where nch is the number of
-channels.
-
-```python
-# Run SSI
-
-br = 10
-
-SSIcov= OMA.SSIcovStaDiag(data, fs, br, ordmax=25)
-
-SSIdat = OMA.SSIdatStaDiag(data, fs, br, ordmax=25)
-
-```
-
-![title](Images/image017.png)![title](Images/image019.png)
-
-
-The aligned green dots are the stable poles of the system, which are an estimate
-of the natural frequencies. To help the identification of the stable poles the
-mplcursors.cursor() function is used in the interactive plot.
-
-```python
-# Define list/array with the aligned poles identified from the plot
-
-FreQ = [0.89, 2.59, 4.07, 5.22, 5.92] # identified poles
-```
-
-We can now run the function OMA.SSIModEX, that will return a dictionary that
-contains the results of the identification in terms of modal properties (natural
-frequencies, mode shapes, damping). The required parameters by the functions
-are: “FreQ” = the list of stable poles previously identified in the
-Stabilization Diagram plot; “Results” = the dictionary of results returned by
-OMA.SSIcovStaDiag and/or OMA.SSIdatStaDiag.
-
-```python
-# Extract the modal properties
-
-Res_SSIcov = OMA.SSIModEX(FreQ, SSIcov[1])
-
-Res_SSIdat= OMA.SSIModEX(FreQ, SSIdat[1])
-
-We can now see the results of the identification by inspecting the results
-dictionaries:
-
-Res_SSIcov[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
-
-Res_SSIdat[‘Frequencies’] = [0.89, 2.59, 4.07, 5.22, 5.93]
-
-Res_SSIcov[‘Damping’] = [2.26%, 1.46%, 1.69%, 1.91%, 2.12%]
-
-Res_SSIdat[‘Damping’] = [2.38%, 1.45%, 1.72%, 1.94%, 2.13%]
-
-Res_SSIcov[‘Mode Shapes’] =
-
-| 0.2786 | 0.7548  | 1       | 0.9372  | 0.5385  |
-|--------|---------|---------|---------|---------|
-| 0.5483 | 1       | 0.2908  | -0.7708 | -0.9165 |
-| 0.7799 | 0.5405  | -0.9177 | -0.2868 | 1       |
-| 0.9297 | -0.2779 | -0.5520 | 1       | -0.7571 |
-| 1      | -0.9148 | 0.7708  | -0.5468 | 0.2852  |
-
-Res_SSIdat[‘Mode Shapes’] =
-
-| 0.2771 | 0.7595  | 1       | 0.9255  | 0.5385  |
-|--------|---------|---------|---------|---------|
-| 0.5398 | 1       | 0.2902  | -0.7657 | -0.9156 |
-| 0.7671 | 0.5413  | -0.9200 | -0.2851 | 1       |
-| 0.9049 | -0.2785 | -0.5497 | 1       | -0.7630 |
-| 1      | -0.9204 | 0.7671  | -0.5432 | 0.2857  |
-```
