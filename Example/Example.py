@@ -8,45 +8,67 @@ Created on Sun Jan 31 11:05:29 2021
 # EXAMPLE pyOMA
 # =============================================================================
 # Import modules
-import pyOMA as OMA
 import numpy as np
 import pandas as pd
 from scipy import signal
 import matplotlib.pyplot as plt
+import pyOMA as oma
+
+
+# ======== PRE-PROCESSING =====================================================
+# To open a .txt file create a variable containing the path to the file
+# Path to the txt file
+_file = r"C:<Path to the txt file>\Ex_file.txt"
 
 # open the file with pandas and create a dataframe 
-data = pd.read_csv(r"C:\Path to the file\5DOF_100Hz_60min.txt", header=None, sep="\t", index_col=False) 
+data = pd.read_csv(_file, header=0, sep="\t", index_col=False) 
 data = np.array(data)
+
+# retrieve the example data from a function 
+data, (fex, FI_ex, xi_ex) = oma.Exdata()
 
 # Sampling frequency
 fs = 100 # [Hz] Sampling Frequency
 q = 5 # Decimation factor
 
+# Using SciPy's signal module we can pre-process our data e.g. performing
+# decimation, trend removal and filtering. 
 # Detrend and decimate
-data = signal.detrend(dati, axis=0) # Rimozione trend
-data = signal.decimate(data,  q, ftype='fir', axis=0) # Decimazione segnale
+data = signal.detrend(data, axis=0) # Trend rmoval
+data = signal.decimate(data,  q, ftype='fir', axis=0) # Decimation
 fs = fs/q # [Hz] Decimated sampling frequency
 
+# Filter
+_b, _a = signal.butter(12, (0.3,6.5), fs=fs, btype='bandpass')
+filtdata = signal.filtfilt(_b, _a, data,axis=0)
+
+
+# ======== ANALYSIS ===========================================================
 # Run FDD
-FDD = FDDsvp(data,  fs)
+FDD = oma.FDDsvp(data,  fs)
+# FDD = oma.FDDsvp(filtdata,  fs)
 
 # Define list/array with the peaks identified from the plot
-FreQ = [0.89, 2.6, 4.07, 5.21, 5.92] # identified peaks
+FreQ = [0.89, 2.6, 4.1, 5.27, 6] # identified peaks
+
 
 # Extract the modal properties 
-Res_FDD = OMA.FDDmodEX(FreQ, FDD[1])
-Res_EFDD = EFDDmodEX(FreQ, FDD[1], method='EFDD')
-Res_FSDD = EFDDmodEX(FreQ, FDD[1], method='FSDD')
+Res_FDD = oma.FDDmodEX(FreQ, FDD[1])
+Res_EFDD = oma.EFDDmodEX(FreQ, FDD[1], method='EFDD', npmax = 25, MAClim=0.95, plot=False)
+Res_FSDD = oma.EFDDmodEX(FreQ, FDD[1], method='FSDD', npmax = 35, MAClim=0.95, plot=True)
 
 # Run SSI
 br = 15
-SSIcov= SSIcovStaDiag(data, fs, br, ordmax=25)
-SSIdat = SSIdatStaDiag(data, fs, br, ordmax=25) 
+SSIcov= oma.SSIcovStaDiag(data, fs, br, ordmax=60)
+SSIdat = oma.SSIdatStaDiag(data, fs, br, ordmax=60) 
+
+
 
 # Extract the modal properties
-Res_SSIcov = SSIModEX(FreQ, SSIcov[1],deltaf=0.01)
-Res_SSIdat= SSIModEX(FreQ, SSIdat[1],deltaf=0.01)
+Res_SSIcov = oma.SSIModEX(FreQ, SSIcov[1])
+Res_SSIdat= oma.SSIModEX(FreQ, SSIdat[1])
 
+R_SSI_auto = oma.SSIAutoModEX(SSIdat)
 
 # =============================================================================
 # 
@@ -59,7 +81,7 @@ _MS_SSIdat = Res_SSIdat['Mode Shapes']
 _nch = data.shape[1]
 
 MACmatr = np.reshape(
-        [MaC(FInorm_1[:,_l],_MS_SSIcov[:,_k].real) for _k in range(_nch) for _l in range(_nch)], # (_nch*_nch) list of MAC values 
+        [MaC(FI_ex[:,_l],_MS_FSDD[:,_k].real) for _k in range(_nch) for _l in range(_nch)], # (_nch*_nch) list of MAC values 
         (_nch,_nch)) # new (real) shape (_nch x _nch) of the MAC matrix
 
 autoMAC = np.reshape(
