@@ -79,7 +79,7 @@ We are now ready to execute the identifications algorithms onto the data.
 
 # Identification – Frequency Domain
 
-We start by running OMA.FDDsvp to perform the Frequency Domain Decomposition
+We start by running oma.FDDsvp to perform the Frequency Domain Decomposition
 (FDD) algorithm, which returns a plot of the Singular Values (SV) of the Power
 Spectral Density (PSD) matrix, and a dictionary that contains the results that
 will be processed later to extract the modal properties.
