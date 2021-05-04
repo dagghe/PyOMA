@@ -32,13 +32,12 @@ pd.read\_csv function, to correctly read and import the data file).
 
 # Import modules
 
-import pyOMA as OMA
-
 import numpy as np
-
 import pandas as pd
-
+import seaborn as sns
 from scipy import signal
+import matplotlib.pyplot as plt
+import pyOMA as oma
 
 # open the file with pandas and create a dataframe
 
