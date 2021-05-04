@@ -87,7 +87,7 @@ will be processed later to extract the modal properties.
 ```python
 # Run FDD
 
-FDD = OMA.FDDsvp(data, fs)
+FDD = oma.FDDsvp(data,  fs)
 ```
 
 ![title](Images/image007.png)
@@ -100,7 +100,7 @@ in the interactive plot.
 
 # Define list/array with the peaks identified from the plot
 
-FreQ = [0.89, 2.6, 4.07, 5.23, 5.9] # identified peaks
+FreQ = [0.89, 2.6, 4.1, 5.27, 6] # identified peaks
 
 ```
 
@@ -123,16 +123,16 @@ OMA.FDDsvp.
 
 ```python
 
-# Extract the modal properties
-
-Res_FDD = OMA.FDDmodEX(FreQ, FDD[1])
-
-Res_EFDD = OMA.EFDDmodEX(FreQ, FDD[1], method='EFDD')
-
-Res_FSDD = OMA.EFDDmodEX(FreQ, FDD[1], method='FSDD')
+# Extract the modal properties 
+Res_FDD = oma.FDDmodEX(FreQ, FDD[1])
+Res_EFDD = oma.EFDDmodEX(FreQ, FDD[1], method='EFDD')
+Res_FSDD = oma.EFDDmodEX(FreQ, FDD[1], method='FSDD', npmax = 35, MAClim=0.95, plot=True)
+```
 
 We can now see the results of the identification by inspecting the results
 dictionaries:
+
+```python
 
 Res_FDD[‘Frequencies’] = [0.89, 2.60, 4.06, 5.23, 5.91]
 
