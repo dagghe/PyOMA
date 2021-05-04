@@ -44,8 +44,10 @@ To install PyOMA, you need to run the following commands:
  - pandas (https://pandas.pydata.org/)
  - scipy -> signal (https://www.scipy.org/)
  - scipy.optimize -> curve_fit (https://www.scipy.org/)
+ - scipy->linalg (https://www.scipy.org/)
  - matplotlib.pyplot (https://matplotlib.org/)
  - matplotlib.ticker -> [MultipleLocator,FormatStrFormatter] (https://matplotlib.org/)
+ - matplotlib.patches (https://matplotlib.org/)
  - seaborn (https://seaborn.pydata.org/)
  - mplcursors (https://mplcursors.readthedocs.io/en/stable/)
 
