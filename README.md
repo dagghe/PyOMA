@@ -52,7 +52,7 @@ To install PyOMA, you need to run the following commands:
 
 # Workflow
 
-![title](Images/Flowchart.png)
+![title](Images/FlowChartPyomaNEW.png)
 
 FDD:
 
