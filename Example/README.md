@@ -24,9 +24,9 @@ the results from each channel are polluted with a noise source with SN=10%.
 # Preliminary operations
 
 First of all, we need to import all the necessary modules, and the data as an
-array with “ndat = number of data point” rows, and “nch = number of channels”
-columns. (N.B. be careful to the parameters “header” and “sep” in the
-pd.read\_csv function, to correctly read and import the data file).
+array.
+Be careful to the parameters “header” and “sep” in the pd.read\_csv function,
+to correctly read and import the data file.
 
 ```python
 
