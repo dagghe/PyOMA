@@ -39,12 +39,17 @@ from scipy import signal
 import matplotlib.pyplot as plt
 import pyOMA as oma
 
+# ======== PRE-PROCESSING =====================================================
+# To open a .txt file create a variable containing the path to the file
+_file = r"C:<Path to the txt file>\Ex_file.txt" # Path to the txt file
+
 # open the file with pandas and create a dataframe
+# N.B. whatchout for header, separator and remove time column if present
+data = pd.read_csv(_file, header=0, sep="\t", index_col=False) 
+data = data.to_numpy()
 
-data = pd.read\_csv(r"C:\\Path to the file\\5DOF_100Hz_60min.txt", header=None,
-sep="\\t", index_col=False)
-
-data = np.array(data)
+# to retrieve the example data 
+data, (fex, FI_ex, xi_ex) = oma.Exdata()
 
 ```
 
