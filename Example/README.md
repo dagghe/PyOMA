@@ -59,18 +59,19 @@ decimate the signal using standard scypy.signal functions:
 ```python
 
 # Sampling frequency
-
 fs = 100 # [Hz] Sampling Frequency
 
-q = 5 # Decimation factor
-
+# Using SciPy's signal module we can pre-process our data e.g. performing
+# decimation, trend removal and filtering. 
 # Detrend and decimate
-
-data = signal.detrend(data, axis=0) # Rimozione trend
-
-data = signal.decimate(data, q, ftype='fir', axis=0) # Decimazione segnale
-
+data = signal.detrend(data, axis=0) # Trend rmoval
+q = 5 # Decimation factor
+data = signal.decimate(data,  q, ftype='fir', axis=0) # Decimation
 fs = fs/q # [Hz] Decimated sampling frequency
+
+# Filter
+_b, _a = signal.butter(12, (0.3,6.5), fs=fs, btype='bandpass')
+filtdata = signal.filtfilt(_b, _a, data,axis=0) # filtered data
 
 ```
 
