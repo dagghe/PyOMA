@@ -71,7 +71,7 @@ used by both researchers and practitioners. It has already been used in several 
 as proved by several scientific publications: [@alaggio2021two], [@aloisio2020assessment], 
 [@aloisio2021assessment], [@aloisio2020bayesian], [@aloisio2020identification], 
 [@aloisio2020recorded], [@aloisio2020dynamic],[@aloisio2020time], [@capanna2021operational]
-![`PyOMA` flowchart.](Images/FlowChartPyomaNEW.png){ width=50% }
+![`PyOMA` flowchart.\label{fig1}](PyOMA/Images/FlowChartPyomaNEW.png){ width=50% }
 
 # Acknowledgements
 The authors acknowledge the meaningful contribution of Professor Rocco Alaggio, who
