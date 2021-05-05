@@ -34,10 +34,20 @@ To better untersdand the workflow of the functions, see the workflow [here](http
 As a prerequisite to install PyOMA, you need to install [Anaconda](https://docs.anaconda.com/anaconda/install/) first.
 You should install a Python version greather equal 3.5 or the software may run in troubles.
 
-To install PyOMA, you need to run the following commands:
+To fully install PyOMA, you need to run the following commands (in the following order):
 
- - pip install pyOMA
- - conda install -c conda-forge pyOMA
+- pip install pandas
+- pip install scipy
+- pip install matplotlib
+- pip install seaborn
+- pip install mplcursors
+
+- pip install Py-OMA
+
+
+To import PyOMA in your workspace, simply type:
+
+- import PyOMA
  
  ### Dependencies
  - numpy (https://numpy.org/)
