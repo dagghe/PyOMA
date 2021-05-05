@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name = 'PyOMA',
+    name = 'Py-OMA',
     packages = ['PyOMA'],
     install_requires=['numpy','scipy','pandas','matplotlib','seaborn','mplcursors'],
     version = 'v1.1',  # Ideally should be same as your GitHub release tag varsion
