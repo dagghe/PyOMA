@@ -55,11 +55,17 @@ testing and OMA [@reynders2014macec]. However, there is no Python module for OMA
 # Statement of Need
 PyOMA is an open-source Python module for OMA. It can estimate the modal parameters
 of a structure using five acknowledged techniques derived from SSI and FDD:
+
 - **Frequency Domain Decomposition** [@brincker2001modal];
+
 - **Enhanced Frequency Domain Decomposition** [brincker2001damping];
+
 - **Frequency Spatial Domain Decomposition** [@zhang2010frequency];
+
 - **Covariance driven Stochastic Subspace Identification** [@peeters1999reference];
+
 - **Data driven Stochastic Subspace Identification** [@van2012subspace]
+
 
 The API for PyOMA provides a set of functions for a quick and simple estimation of the 
 natural frequencies, mode shapes and damping using the experimental data recorded 
