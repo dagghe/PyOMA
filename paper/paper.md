@@ -20,9 +20,9 @@ affiliations:
  - name: Faculty of Science and Technology, Norwegian University of Life Sciences, \AA s, Norway
    index: 1
  - name: Department of Civil, Construction-Architectural and Environmental Engineering, Università degli Studi dell'Aquila, L'Aquila, Italy
-   index: 1
+   index: 2
  - name: Department of Information Engineering, Computer Science and Mathematics, Università degli Studi dell'Aquila, L'Aquila, Italy
-   index: 1
+   index: 3
 date: 24 March 2021
 bibliography: paper.bib
 ---
@@ -38,7 +38,7 @@ engineering structure. Neither it is possible to adequately excite them using
 conventional devices, such as impact hammer and shakers. On the other hand,
 output vibration data acquired through accelerometers are relatively easy to get.
 In OMA, the deterministic knowledge of the input excitation is replaced by the 
-assumption that the input is a realization of astochastic process. Accordingly, 
+assumption that the input is a realization of a stochastic process. Accordingly, 
 Operational Modal Analysis and Output-Only dynamic identification are considered synonyms. 
 There is a large variety of algorithms for OMA. Among them, the Stochastic Subspace 
 Identification (SSI) and the Frequency Domain Decomposition (FDD) have proved to be 
@@ -47,7 +47,7 @@ effective and reliable algorithms for Output-Only dynamic identification
 stochastic state-space model from Output-Only data [@peeters1999reference]. The FDD 
 is a frequency domain method that estimates the modal parameters using the input/output 
 relationship of an n-DOF system stochastic process [@brincker2001modal]. There are
-commercial software that offer the two algorithms, the most known probably are
+commercial software that implement the two algorithms, the most known probably are
 ARTeMIS, by Strctural Vibration Solutions, and MACEC, a Matlab toolbox for modal 
 testing and OMA [@reynders2014macec]. However, there is no Python module for OMA.
 
@@ -58,7 +58,7 @@ of a structure using five acknowledged techniques derived from SSI and FDD:
 
 - **Frequency Domain Decomposition** [@brincker2001modal];
 
-- **Enhanced Frequency Domain Decomposition** [brincker2001damping];
+- **Enhanced Frequency Domain Decomposition** [@brincker2001damping];
 
 - **Frequency Spatial Domain Decomposition** [@zhang2010frequency];
 
