@@ -804,6 +804,10 @@ def SSIModEX(FreQ, Results, deltaf=0.05, aMaClim=0.95):
         # Index 2 of reference shape
         MSrefidx2 = int(df3['Emme'].values[idxmax])
         firef = Ms[MSrefidx1][:,MSrefidx2] # Reference shape
+        
+        idmax = np.argmax(abs(firef))
+        firef = firef/firef[idmax] # normalised (unity displacement)
+
 
         # keeping only the poles that have MAC > MAClim value
         AMaC = AutoMacche[idxmax]
