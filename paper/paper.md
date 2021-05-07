@@ -48,7 +48,7 @@ stochastic state-space model from Output-Only data [@peeters1999reference]. The 
 is a frequency domain method that estimates the modal parameters using the input/output 
 relationship of an n-DOF system stochastic process [@brincker2001modal]. There are
 commercial software that implement the two algorithms, the most known probably are
-ARTeMIS, by Strctural Vibration Solutions, and MACEC, a Matlab toolbox for modal 
+ARTeMIS, by Structural Vibration Solutions, and MACEC, a Matlab toolbox for modal 
 testing and OMA [@reynders2014macec]. However, there is no Python module for OMA.
 
 
