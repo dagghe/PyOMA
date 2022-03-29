@@ -1,0 +1,7 @@
+############## Instruction to run PyOMA_GUI ##########################
+pip install virtualenv
+cd my-project
+virtualenv --python ...\Programs\Python\Python310\python.exe venv
+.\venv\Scripts\activate
+pip install .
+run.py
