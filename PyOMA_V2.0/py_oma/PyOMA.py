@@ -200,7 +200,7 @@ def Exdata():
 
 #------------------------------------------------------------------------------
     
-def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1), 
+def SSIdatStaDiag(data, fs, br, ordmin=0, ordmax=None, lim=(0.01,0.05,0.02,0.1), 
                   method='1'):
     '''
     This function perform the Data-driven Stochastic sub-Space Identification 
@@ -249,9 +249,9 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
         This dictionary will be passed as argument to the SSImodEX() function.
     '''
     
-    ndat=data.shape[0] # Number of data points
-    nch=data.shape[1] # Number of channel
-    
+    ndat=int(data.shape[0]) # Number of data points
+    nch=int(data.shape[1]) # Number of channel
+    br = int(br)
     # If the maximum order is not given (default) it is set as the maximum
     # allowable model order which is: number of block rows * number of channels
     if ordmax == None:
@@ -267,6 +267,7 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     j=ndat-2*br+1; # Dimension of the Hankel matrix
 
     H=np.zeros((nch*2*br,j)) # Initialization of the Hankel matrix
+    # for k in range(0,2*br):
     for k in range(0,2*br):
      	H[k*nch:((k+1)*nch),:]=(1/j**0.5)*Yy[:,k:k+j] # calculating Hankel matrix
     
@@ -301,11 +302,11 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     Fr_lab=np.full((ordmax, int((ordmax)/2+1)), np.nan)  # initialization of the matrix that contains the labels of the poles
     Sm=np.full((ordmax, int((ordmax)/2+1)), np.nan) # initialization of the matrix that contains the damping ratios
     Ms = []  # initialization of the matrix (list of arrays) that contains the mode shapes
-    for z in range(0, int((ordmax)/2+1)):
-        Ms.append(np.zeros((nch, z*(2))))
+    for z in range(0, int((ordmax-ordmin)/2+1)):
+        Ms.append(np.zeros((nch, ordmin + z*(2))))
 
     # loop for increasing order of the system
-    for _ind in range(0, ordmax+1, 2):
+    for _ind in range(ordmin, ordmax+1, 2):
 
         S11 = np.zeros((_ind, _ind)) # Inizializzo
         U11 = np.zeros((br*nch, _ind)) # Inizializzo
@@ -360,7 +361,7 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
         # Mreal = np.real(C@_AuVett)
         
         # we are increasing 2 orders at each step
-        _ind_new = int(_ind/2) 
+        _ind_new = int((_ind-ordmin)/2) 
     
         Fr[:len(fr),_ind_new] = fr # save the frequencies   
         Sm[:len(fr),_ind_new] = smorz # save the damping ratios
@@ -449,10 +450,10 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     _colors = {0:'Red', 1:'darkorange', 2:'gold', 3:'yellow', 4:'Green'} 
     
     fig1, ax1 = plt.subplots()
-    ax1 = sns.scatterplot(x=df2['Frequency'], y=df2['Order']*2, hue=df2['Label'], palette=_colors)
+    ax1 = sns.scatterplot(x=df2['Frequency'], y=df2['Order']*2+ordmin, hue=df2['Label'], palette=_colors)
     
     ax1.set_xlim(left=0, right=freq_max)
-    ax1.set_ylim(bottom=0, top=ordmax)
+    ax1.set_ylim(bottom=ordmin, top=ordmax)
     ax1.xaxis.set_major_locator(MultipleLocator(freq_max/10))
     ax1.xaxis.set_major_formatter(FormatStrFormatter('%g'))
     ax1.xaxis.set_minor_locator(MultipleLocator(freq_max/100))
@@ -479,7 +480,7 @@ def SSIdatStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
 #------------------------------------------------------------------------------
 
 
-def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1), 
+def SSIcovStaDiag(data, fs, br, ordmin=0, ordmax=None, lim=(0.01,0.05,0.02,0.1), 
                   method='1'):
     '''
     This function perform the covariance-driven Stochastic sub-Space 
@@ -530,9 +531,9 @@ def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
         This dictionary will be passed as argument to the SSImodEX() function.
     '''
     
-    ndat=data.shape[0] # Number of data points
-    nch=data.shape[1] # Number of channel
-    
+    ndat=int(data.shape[0]) # Number of data points
+    nch=int(data.shape[1]) # Number of channel
+    br = int(br)
     # If the maximum order is not given (default) it is set as the maximum
     # allowable model order which is: number of block rows * number of channels
     if ordmax == None:
@@ -567,11 +568,11 @@ def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     Fr_lab=np.full((ordmax, int((ordmax)/2+1)), np.nan)  # initialization of the matrix that contains the labels of the poles
     Sm=np.full((ordmax, int((ordmax)/2+1)), np.nan) # initialization of the matrix that contains the damping ratios
     Ms = []  # initialization of the matrix (list of arrays) that contains the mode shapes
-    for z in range(0, int((ordmax)/2+1)):
+    for z in range(0, int((ordmax-ordmin)/2+1)):
         Ms.append(np.zeros((nch, z*(2))))
 
     # loop for increasing order of the system
-    for _ind in range(0, ordmax+1, 2):
+    for _ind in range(ordmin, ordmax+1, 2):
 
         S11 = np.zeros((_ind, _ind)) # Inizializzo
         U11 = np.zeros((br*nch, _ind)) # Inizializzo
@@ -617,7 +618,7 @@ def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
         # Mreal = np.real(C@_AuVett)
         
         # we are increasing 2 orders at each step
-        _ind_new = int(_ind/2) 
+        _ind_new = int((_ind-ordmin)/2) 
     
         Fr[:len(fr),_ind_new] = fr # save the frequencies   
         Sm[:len(fr),_ind_new] = smorz # save the damping ratios
@@ -706,10 +707,10 @@ def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     _colors = {0:'Red', 1:'darkorange', 2:'gold', 3:'yellow', 4:'Green'} 
     
     fig1, ax1 = plt.subplots()
-    ax1 = sns.scatterplot(x=df2['Frequency'], y=df2['Order']*2, hue=df2['Label'], palette=_colors)
+    ax1 = sns.scatterplot(x=df2['Frequency'], y=df2['Order']*2+ordmin, hue=df2['Label'], palette=_colors)
     
     ax1.set_xlim(left=0, right=freq_max)
-    ax1.set_ylim(bottom=0, top=ordmax)
+    ax1.set_ylim(bottom=ordmin, top=ordmax)
     ax1.xaxis.set_major_locator(MultipleLocator(freq_max/10))
     ax1.xaxis.set_major_formatter(FormatStrFormatter('%g'))
     ax1.xaxis.set_minor_locator(MultipleLocator(freq_max/100))
@@ -723,7 +724,7 @@ def SSIcovStaDiag(data, fs, br, ordmax=None, lim=(0.01,0.05,0.02,0.1),
     #     ordmin = 0
     Results['Data'] = {'Data': data}
     Results['Data']['Samp. Freq.'] = fs
-    Results['Data']['Ord min max'] = (0, ordmax)
+    Results['Data']['Ord min max'] = (ordmin, ordmax)
     Results['Data']['Block rows'] = br
     
     Results['All Poles'] = df1
