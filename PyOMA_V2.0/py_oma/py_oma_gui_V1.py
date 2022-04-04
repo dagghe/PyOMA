@@ -72,6 +72,7 @@ class UI(QMainWindow):
         self._figuresFDD = {}
         self._figuresSSI = {}
         self.nodesDict = {}
+        # self.channelsDict: {'Name of channel': [ID of node, direction (0-->x, 1-->y, 2-->z)]}
         self.channelsDict = {}
         self.channelNamesDict = {}
         self.no_channels = 0
@@ -113,11 +114,11 @@ class UI(QMainWindow):
         self.tableNodes.setColumnWidth(4,100); self.tableNodes.setColumnWidth(5,100)
 
         # Preprocessing
-        self.checkBoxFilter = self.findChild(QCheckBox, "checkBox_Filter")
+        self.checkBoxDetrend = self.findChild(QCheckBox, "checkBox_Detrend")
+        self.checkBoxDecimation = self.findChild(QCheckBox, "checkBox_Decimation")
         self.lineEditDecimationFactor = self.findChild(QLineEdit, "lineEdit_DecimationFactor")
         self.lineEditInsertPeak = self.findChild(QLineEdit, "lineEdit_InsertPeak")
         self.lineEditSamplingFrequency = self.findChild(QLineEdit, "lineEdit_SamplingFrequency")
-        self.lineEditTimeShifts = self.findChild(QLineEdit, "lineEdit_TimeShifts")
         self.listIdentifiedPeaks = self.findChild(QListWidget, "listWidget_DisplayIdentifiedPeaks")
         self.buttonAddIdentifiedPeak = self.findChild(QPushButton, "pushButton_AddIdentifiedPeak")
         self.buttonClearIdentifiedPeaks = self.findChild(QPushButton, "pushButton_ClearIdentifiedPeaks")
@@ -160,6 +161,13 @@ class UI(QMainWindow):
         self.checkBox_SSI_dat = self.findChild(QCheckBox, "checkBox_SsiDat")
         self.comboBoxSSIFigures = self.findChild(QComboBox, "comboBox_SsiFigures")
         self.buttonRunSSI = self.findChild(QPushButton, "pushButton_RunSsi")
+        self.lineMinOrder = self.findChild(QLineEdit, "lineEdit_MinOrder")
+        self.lineMaxOrder = self.findChild(QLineEdit, "lineEdit_MaxOrder")
+        self.lineEditTimeShifts = self.findChild(QLineEdit, "lineEdit_TimeShifts")
+        self.lineEditLim0 = self.findChild(QLineEdit, "lineEdit_Lim0")
+        self.lineEditLim1 = self.findChild(QLineEdit, "lineEdit_Lim1")
+        self.lineEditLim2 = self.findChild(QLineEdit, "lineEdit_Lim2")
+        self.lineEditLim3 = self.findChild(QLineEdit, "lineEdit_Lim3")
 
         # SSI results
         self.tableDampSsiCov = self.findChild(QTableWidget, "tableWidget_DampSsiCov")
@@ -565,21 +573,15 @@ class UI(QMainWindow):
         self.parameters = Parameters()
         self.parameters.sampling_frequency = float(self.lineEditSamplingFrequency.text())
         self.parameters.decimation_factor = int(self.lineEditDecimationFactor.text())
-        self.parameters.time_shifts = int(self.lineEditTimeShifts.text())
-        fs = self.parameters.sampling_frequency  # [Hz] Sampling Frequency
-        data = signal.detrend(data, axis=0) # Trend removal
-        q = self.parameters.decimation_factor  # Decimation factor
-        data = signal.decimate(data,  q, ftype='fir', axis=0) # Decimation
-        fs = fs/q  # [Hz] Decimated sampling frequency
-        # Filter
-        if self.checkBoxFilter.isChecked():
-            _b, _a = signal.butter(12, (0.3,6.5), fs=fs, btype='bandpass')
-            data = signal.filtfilt(_b, _a, data,axis=0) # filtered data
-            self.inputData = data
-        else:
-            self.inputData = data
+        if self.checkBoxDetrend.isChecked():
+            data = signal.detrend(data, axis=0) # Trend removal
+        if self.checkBoxDecimation.isChecked():
+            q = self.parameters.decimation_factor  # Decimation factor
+            data = signal.decimate(data,  q, ftype='fir', axis=0) # Decimation
+            self.parameters.sampling_frequency = self.parameters.sampling_frequency/q  # [Hz] Decimated sampling freq.
+        self.inputData = data
         # Run FDD
-        fdd = oma.FDDsvp(data,  fs)
+        fdd = oma.FDDsvp(self.inputData,  self.parameters.sampling_frequency)
         fdd[0].savefig(self.resultsDirectory + '/' + 'SV(PSD)_plot.png')
         self.plotWidgetFddSvp = FigureCanvas(fdd[0])
         self.layFddSvpPlot.addWidget(self.plotWidgetFddSvp)
@@ -640,7 +642,6 @@ class UI(QMainWindow):
 
     # Clicker for running the FDD
     def clicker_run_fdd(self):
-        _freq = self.parameters.identified_peaks
         results_directory = self.resultsDirectory + '/FDD'
         os.makedirs(results_directory)
         self.comboBoxFDDFiguresGeom3.addItem(self.num_setup)
@@ -649,7 +650,7 @@ class UI(QMainWindow):
             self.comboBoxFDDFigures2.addItem(item)
             self.comboBoxFDDFiguresGeom2.addItem(item)
         if self.checkBox_OriginalFDD.isChecked():
-            res_fdd = oma.FDDmodEX(_freq, self.fddhelper)
+            res_fdd = oma.FDDmodEX(self.parameters.identified_peaks, self.fddhelper)
             self.write_to_txt(res_fdd, results_directory, 'FDD')
             self.write_to_gui(res_fdd, self.tableFreqFdd, 'Frequencies', 'FDD')
             self.write_to_gui(res_fdd, self.tableModeFdd, 'Mode Shapes', 'FDD')
@@ -660,7 +661,7 @@ class UI(QMainWindow):
                 _temp = f'Mode{i + 1}'
                 self.modesDict[self.num_setup + 'FDD' + _temp] = modes[i]
         if self.checkBox_EFDD.isChecked():
-            _fig, res_efdd = oma.EFDDmodEX(_freq, self.fddhelper, method='EFDD', plot=True)
+            _fig, res_efdd = oma.EFDDmodEX(self.parameters.identified_peaks, self.fddhelper, method='EFDD', plot=True)
             self.write_to_txt(res_efdd, results_directory, 'EFDD')
             self.write_to_gui(res_efdd, self.tableFreqEfdd, 'Frequencies', 'EFDD')
             self.write_to_gui(res_efdd, self.tableDampEfdd, 'Damping', 'EFDD')
@@ -676,7 +677,8 @@ class UI(QMainWindow):
                 _temp_png = f'EFDDMode{i + 1}.png'
                 _fig[i].savefig(results_directory + '/' + _temp_png)
         if self.checkBox_FSDD.isChecked():
-            _fig, res_fsdd = oma.EFDDmodEX(_freq, self.fddhelper, method='FSDD', npmax = 35, MAClim=0.95, plot=True)
+            _fig, res_fsdd = oma.EFDDmodEX(self.parameters.identified_peaks, self.fddhelper, method='FSDD', npmax = 35,
+                                           MAClim=0.95, plot=True)
             self.write_to_txt(res_fsdd, results_directory, 'FSDD')
             self.write_to_gui(res_fsdd, self.tableFreqFsdd, 'Frequencies', 'FSDD')
             self.write_to_gui(res_fsdd, self.tableDampFsdd, 'Damping', 'FSDD')
@@ -728,14 +730,17 @@ class UI(QMainWindow):
             _sum = 0
             _channelNames = self.channelNamesDict[num_setup]
             for channel in _channelNames:
+                factor = 1
+                if channel[0] == '-':
+                    factor = -1
                 node = self.channelsDict[channel]
                 point = self.nodesDict[node[0]]
                 if node[1] == 0:
-                    point.xyz_new[0] += _mode[_sum]
+                    point.xyz_new[0] += factor * _mode[_sum]
                 elif node[1] == 1:
-                    point.xyz_new[1] += _mode[_sum]
+                    point.xyz_new[1] += factor * _mode[_sum]
                 elif node[1] == 2:
-                    point.xyz_new[2] += _mode[_sum]
+                    point.xyz_new[2] += factor * _mode[_sum]
                 _sum += 1
             connectivity = self.connectivity
             nodes = self.nodes
@@ -843,12 +848,20 @@ class UI(QMainWindow):
 
     # Clicker for running the SSI
     def clicker_run_ssi(self):
-        _freq = self.parameters.identified_peaks  # identified peaks
-        fs = self.parameters.sampling_frequency  # [Hz] Sampling Frequency
-        q = self.parameters.decimation_factor  # Decimation factor
-        fs = fs / q  # [Hz] Decimated sampling frequency
-        br = self.parameters.time_shifts
-        data = self.inputData
+        self.parameters.time_shifts = int(self.lineEditTimeShifts.text())
+        self.parameters.min_order = int(self.lineMinOrder.text())
+        lim0 = float(self.lineEditLim0.text())
+        lim1 = float(self.lineEditLim1.text())
+        lim2 = float(self.lineEditLim2.text())
+        lim3 = float(self.lineEditLim3.text())
+        limVal = (lim0, lim1, lim2, lim3)
+        if self.lineMaxOrder.text() != '':
+            self.parameters.max_order = int(self.lineMaxOrder.text())
+        else:
+            self.parameters.max_order = None
+
+
+
         # Extract the modal properties
         results_directory = self.resultsDirectory + '/SSI'
         os.makedirs(results_directory)
@@ -856,12 +869,14 @@ class UI(QMainWindow):
             item = f'Mode{i + 1}'
             self.comboBoxSSIFiguresGeom2.addItem(item)
         if self.checkBox_SSI_cov.isChecked():
-            ssi_cov = oma.SSIcovStaDiag(data, fs, br)
+            ssi_cov = oma.SSIcovStaDiag(self.inputData, self.parameters.sampling_frequency, self.parameters.time_shifts,
+                                        ordmin=self.parameters.min_order, ordmax=self.parameters.max_order,
+                                        lim=limVal)
             _temp = f'SSI_cov_Results'
             self._figuresSSI[_temp] = ssi_cov[0]
             _temp_png = f'SSI_cov_Results.png'
             ssi_cov[0].savefig(results_directory + '/' + _temp_png)
-            res_ssi_cov = oma.SSIModEX(_freq, ssi_cov[1])
+            res_ssi_cov = oma.SSIModEX(self.parameters.identified_peaks, ssi_cov[1])
             self.write_to_txt(res_ssi_cov, results_directory, 'SSIcov')
             self.write_to_gui(res_ssi_cov, self.tableFreqSsiCov, 'Frequencies', 'SSIcov')
             self.write_to_gui(res_ssi_cov, self.tableDampSsiCov, 'Damping', 'SSIcov')
@@ -873,12 +888,14 @@ class UI(QMainWindow):
                 modes = _modes.T
                 self.modesDict[_temp] = modes[i]
         if self.checkBox_SSI_dat.isChecked():
-            ssi_dat = oma.SSIdatStaDiag(data, fs, br, ordmax=60, lim=(0.01, 0.05, 0.02, 0.1))
+            ssi_dat = oma.SSIdatStaDiag(self.inputData, self.parameters.sampling_frequency, self.parameters.time_shifts,
+                                        ordmin=self.parameters.min_order, ordmax=self.parameters.max_order,
+                                        lim=limVal)
             _temp = f'SSI_dat_Results'
             self._figuresSSI[_temp] = ssi_dat[0]
             _temp_png = f'SSI_dat_Results.png'
             ssi_dat[0].savefig(results_directory + '/' + _temp_png)
-            res_ssi_dat = oma.SSIModEX(_freq, ssi_dat[1])
+            res_ssi_dat = oma.SSIModEX(self.parameters.identified_peaks, ssi_dat[1])
             self.write_to_txt(res_ssi_dat, results_directory, 'SSIdat')
             self.write_to_gui(res_ssi_dat, self.tableFreqSsiDat, 'Frequencies', 'SSIdat')
             self.write_to_gui(res_ssi_dat, self.tableDampSsiDat, 'Damping', 'SSIdat')
@@ -926,14 +943,17 @@ class UI(QMainWindow):
             _sum = 0
             _channelNames = self.channelNamesDict[self.num_setup]
             for channel in _channelNames:
+                factor = 1
+                if channel[0] == '-':
+                    factor = -1
                 node = self.channelsDict[channel]
                 point = self.nodesDict[node[0]]
                 if node[1] == 0:
-                    point.xyz_new[0] += _mode[_sum]
+                    point.xyz_new[0] += factor * _mode[_sum]
                 elif node[1] == 1:
-                    point.xyz_new[1] += _mode[_sum]
+                    point.xyz_new[1] += factor * _mode[_sum]
                 elif node[1] == 2:
-                    point.xyz_new[2] += _mode[_sum]
+                    point.xyz_new[2] += factor * _mode[_sum]
                 _sum += 1
             connectivity = self.connectivity
             nodes = self.nodes
@@ -1161,9 +1181,10 @@ class UI(QMainWindow):
             self.tableNodes.itemChanged.disconnect(self.log_change)
         self.setup_clicks = 1
         self.lineEditSamplingFrequency.setText('100')
-        self.lineEditDecimationFactor.setText('5')
+        self.lineEditDecimationFactor.setText('2')
         self.lineEditTimeShifts.setText('15')
-        self.checkBoxFilter.setChecked(False)
+        self.checkBoxDetrend.setChecked(False)
+        self.checkBoxDecimation.setChecked(False)
         self.checkBox_OriginalFDD.setChecked(False)
         self.checkBox_FSDD.setChecked(False)
         self.checkBox_EFDD.setChecked(False)
@@ -1238,6 +1259,8 @@ class Parameters:
     decimation_factor: int = field(default_factory=int)
     time_shifts: int = field(default_factory=int)
     identified_peaks: list = field(default_factory=list)
+    min_order: int = field(default_factory=int)
+    max_order: int = field(default_factory=int)
 
 @dataclass
 class Point:
