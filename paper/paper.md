@@ -85,7 +85,7 @@ as proved by several scientific publications: @alaggio2021two, @aloisio2020asses
 ![`PyOMA` flowchart.](Fig1.png)
 
 # Software overview
-PyOMA_GUI is a graphical user interface software developed in [PyQt5](https://pypi.org/project/PyQt5/), which implements in a single integrated tool the operational modal analysis of civil structures with output-only measurement data. This software utilises the aforementioned functionalities offered by the [PyOMA](https://github.com/dagghe/PyOMA) python module. Therefore, PyOMA_GUI provides an remarkably user-friendly interface to improve the accessibility of the PyOMA module, ensuring a widespread usage both for scientist, researchers and even for practical civil engineers. The main features PyOMA_GUI provides are listed below:
+PyOMA_GUI is a graphical user interface software developed in [PyQt5](https://pypi.org/project/PyQt5/), which implements in a single integrated tool the operational modal analysis of civil structures with output-only measurement data. This software utilises the aforementioned functionalities offered by the [PyOMA](https://github.com/dagghe/PyOMA) python module. Therefore, PyOMA_GUI provides a remarkably user-friendly interface to improve the accessibility of the PyOMA module, ensuring widespread usage both for scientists, researchers, and even for applied civil and structural engineers. The main features PyOMA_GUI provides are listed below:
 - Importing data tab;
 - Definition of the geometry of the structure and the monitoring system (channels and degrees of freedom, DOFs);
 - Preprocessing of signals tool with detrending and decimation options;

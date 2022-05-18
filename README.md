@@ -96,3 +96,23 @@ SSI
 # Function Description
 
 A complete description of the functions available in PyOMA can be found in the page [Function Description](https://github.com/dagghe/PyOMA/wiki/Function-Description).
+
+
+# What is PyOMA_GUI? A brief software overview
+
+PyOMA_GUI is a graphical user interface software developed in [PyQt5](https://pypi.org/project/PyQt5/), which implements in a single integrated tool the operational modal analysis of civil structures with output-only measurement data. This software utilises the aforementioned functionalities offered by the [PyOMA](https://github.com/dagghe/PyOMA) python module. Therefore, PyOMA_GUI provides a remarkably user-friendly interface to improve the accessibility of the PyOMA module, ensuring widespread usage both for scientists, researchers, and even for applied civil and structural engineers. The main features PyOMA_GUI provides are listed below:
+- Importing data tab;
+- Definition of the geometry of the structure and the monitoring system (channels and degrees of freedom, DOFs);
+- Preprocessing of signals tool with detrending and decimation options;
+- Dynamic identification algorithms with visualization of the results (graphs, modal shapes);
+- Post-processing tabs and output exportation functionalities;
+
+![`PyOMA_GUI` general overview.](paper/Fig2.png)
+
+The executable file PyOMA_GUI.exe for windows is already available [here](PyOMA_GUI/PyOMA_GUI.exe).
+
+A short manual to guide the user into an introductory example is available [here](PyOMA_V2.0/manual_v1.docx).
+
+# Acknowledgements
+The developers acknowledge the meaningful contribution of [Professor Rocco Alaggio](http://diceaa.univaq.it/team-view/prof_alaggio/) from Università degli Studi dell'Aquila, who encouraged the authors to study and develop these topics. Furthermore, the developers acknowledge the meaningful contribution of [Professor Giuseppe Carlo Marano](https://www.diseg.polito.it/en/personale/scheda/(nominativo)/giuseppe.marano) from Politecnico di Torino for promoting the Graphical User Interface programming and coordinating the team activities.
+
