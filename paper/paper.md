@@ -1,11 +1,12 @@
 ---
-title: 'PyOMA: A Python module for Operational Modal Analysis'
+title: 'PyOMA and PyOMA_GUI: A Python module and software for Operational Modal Analysis'
 tags:
   - Python
   - operational modal analysis
   - ambient vibration test
   - structural dynamics
   - modal testing
+  - graphical user interface
 authors:
   - name: Dag Pasquale Pasca
     orcid: 0000-0002-3830-2835
@@ -13,17 +14,20 @@ authors:
   - name: Angelo Aloisio
     orcid: 0000-0002-6190-0139
     affiliation: 2
-  - name: Lorenzo De Lauretis
-    orcid: 0000-0002-8796-3672
+  - name: Marco Martino Rosso
+    orcid: 0000-0002-9098-4132
+    affiliation: 3
+  - name: Stefanos Sotiropoulos
+    orcid: 0000-0001-5669-1320
     affiliation: 3
 affiliations:
- - name: Faculty of Science and Technology, Norwegian University of Life Sciences, \AA s, Norway
+ - name: Norsk Treteknisk Institutt, Børrestuveien 3, 0373, Oslo, Norway
    index: 1
  - name: Department of Civil, Construction-Architectural and Environmental Engineering, Università degli Studi dell'Aquila, L'Aquila, Italy
    index: 2
- - name: Department of Information Engineering, Computer Science and Mathematics, Università degli Studi dell'Aquila, L'Aquila, Italy
+ - name: Department of Structural, Geotechnical and Building Engineering Politecnico di Torino, Corso Duca degli Abruzzi, 24, 10129, Torino, Italy
    index: 3
-date: 24 March 2021
+date: 18 May 2022
 bibliography: paper.bib
 ---
 
@@ -80,8 +84,17 @@ as proved by several scientific publications: @alaggio2021two, @aloisio2020asses
 
 ![`PyOMA` flowchart.](Fig1.png)
 
+# Software overview
+PyOMA_GUI is a graphical user interface software developed in [PyQt5](https://pypi.org/project/PyQt5/), which implements in a single integrated tool the operational modal analysis of civil structures with output-only measurement data. This software utilises the aforementioned functionalities offered by the [PyOMA](https://github.com/dagghe/PyOMA) python module. Therefore, PyOMA_GUI provides an remarkably user-friendly interface to improve the accessibility of the PyOMA module, ensuring a widespread usage both for scientist, researchers and even for practical civil engineers. The main features PyOMA_GUI provides are listed below:
+- Importing data tab;
+- Definition of the geometry of the structure and the monitoring system (channels and degrees of freedom, DOFs);
+- Preprocessing of signals tool with detrending and decimation options;
+- Dynamic identification algorithms with visualization of the results (graphs, modal shapes);
+- Post-processing tabs and output exportation functionalities;
+
+![`PyOMA_GUI` general overview.](Fig2.png)
+
 # Acknowledgements
-The authors acknowledge the meaningful contribution of Professor Rocco Alaggio, who
-encouraged the authors to study and develop these topics.
+The authors acknowledge the meaningful contribution of Professor Rocco Alaggio from Università degli Studi dell'Aquila, who encouraged the authors to study and develop these topics. The authors acknowledge the meaningful contribution of Professor Giuseppe Carlo Marano from Politecnico di Torino for promoting the Graphical User Interface programming and coordinating the team activities.
 
 # References
