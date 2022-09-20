@@ -116,3 +116,12 @@ A short manual to guide the user into an introductory example is available [here
 # Acknowledgements
 The developers acknowledge the meaningful contribution of [Professor Rocco Alaggio](http://diceaa.univaq.it/team-view/prof_alaggio/) from Università degli Studi dell'Aquila, who encouraged the authors to study and develop these topics. Furthermore, the developers acknowledge the meaningful contribution of [Professor Giuseppe Carlo Marano](https://www.diseg.polito.it/en/personale/scheda/(nominativo)/giuseppe.marano) from Politecnico di Torino for promoting the Graphical User Interface programming and coordinating the team activities.
 
+# How to cite
+If you have any issue, please feel free to contact us at our official e-mail address:
+
+> [supportPyOMA@polito.it](mailto:supportPyOMA@polito.it)
+
+# How to cite
+If you use this code, please don't forget to cite this work:
+
+> Pasca, D. P., Aloisio, A., Rosso, M. M., & Sotiropoulos, S. (2022). PyOMA and PyOMA_GUI: A Python module and software for Operational Modal Analysis. Software X, (In press)
