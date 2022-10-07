@@ -124,4 +124,4 @@ If you have any issue, please feel free to contact us at our official e-mail add
 # How to cite
 If you use this code, please don't forget to cite this work:
 
-> Pasca, D. P., Aloisio, A., Rosso, M. M., & Sotiropoulos, S. (2022). PyOMA and PyOMA_GUI: A Python module and software for Operational Modal Analysis. Software X, (In press)
+> Dag Pasquale Pasca, Angelo Aloisio, Marco Martino Rosso et al., PyOMA and PyOMA_GUI: A Python module and software for Operational Modal Analysis. SoftwareX (2022) 101216, [https://doi.org/10.1016/j.softx.2022.101216](https://doi.org/10.1016/j.softx.2022.101216).
