@@ -1,0 +1,2746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1114</width>
+    <height>852</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PyOMA GUI App</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(238, 238, 238);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1050</width>
+      <height>810</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_Credits">
+     <attribute name="title">
+      <string>Credits</string>
+     </attribute>
+     <widget class="QTextBrowser" name="textBrowser_Credits">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>120</y>
+        <width>761</width>
+        <height>521</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PyOMA is a GUI application to perform Operational Modal Analysis&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;with output-only vibration data&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Credits&lt;/span&gt;:&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;• Ph.D. Angelo Aloisio &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Università degli studi dell'Aquila&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;angelo.aloisio1@univaq.it&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;• Ph.D. Dag Pasquale Pasca &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Norsk Treteknisk Institutt &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;dpa@treteknisk.no&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;• Ph.D. Student Marco Martino Rosso &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Politecnico di Torino &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;marco.rosso@polito.it&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;• Ph.D. Stefanos Sotiropoulos &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Politecnico di Torino &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;st.sotirop@gmail.com&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-style:italic;&quot;&gt;Acknowledgement&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;The PyOMA program was organized and utilized by the supervision of &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Professor Giuseppe Carlo Marano&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Vice Head of the DISEG department, Politecnico di Torino, giuseppe.marano@polito.it &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_UDESTA">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>650</y>
+        <width>251</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>sources/Logo_UNIVAQ.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_Treteknisk">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>670</y>
+        <width>201</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>sources/logo-treteknisk.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_POLITO">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>650</y>
+        <width>230</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>sources/Polito_Logo_2021_BLU.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_PyOMA">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>0</y>
+        <width>211</width>
+        <height>120</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>sources/logopyoma.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_ImportData">
+     <attribute name="title">
+      <string>Import Data</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_LoadData">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>80</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_OpenFile">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>550</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>Open File:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>200</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Visualize imported data</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>710</y>
+        <width>171</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Number of time steps</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>750</y>
+        <width>171</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Number of channels</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>170</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Create main folder directory</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_2">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>80</y>
+        <width>170</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load input data</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_InputData">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>240</y>
+        <width>840</width>
+        <height>450</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_TimeSteps">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>710</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_NumChannels">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>750</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CreateFolder">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>30</y>
+        <width>550</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Panel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>Select Folder:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_CreateFolder">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>30</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_ClearAllSingle">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>180</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear Set-up</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_SubmitSetup">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>130</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Geometry">
+     <attribute name="title">
+      <string>Geometry</string>
+     </attribute>
+     <widget class="QWidget" name="content_PlotInitialGeometry" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>501</width>
+        <height>400</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarInitialGeometry" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>501</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_6">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>161</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load nodes' coordinate</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_OpenFileNodes">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>30</y>
+        <width>550</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>Open File:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_LoadNodes">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>30</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_7">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>80</y>
+        <width>161</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load connectivity</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_OpenFileConnectivity">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>80</y>
+        <width>550</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="text">
+       <string>Open File:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_LoadConnectivity">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>80</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_CreateGeometry">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>600</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Create Geometry</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_Nodes">
+      <property name="geometry">
+       <rect>
+        <x>539</x>
+        <y>170</y>
+        <width>500</width>
+        <height>430</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>421</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>70</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>x</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>y</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>z</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Channel_x</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Channel_y</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Channel_z</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_SubmitChannels">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>600</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_ClearChannels">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>600</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>139</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Initial Structure</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_14">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>139</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Assign Channels to DOF</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_40">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>660</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Channels' names</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_ChannelsNames">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>700</y>
+        <width>161</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_41">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>660</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Channels' assignments</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_AllChannelsAssignments">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>700</y>
+        <width>471</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Preprocessing">
+     <attribute name="title">
+      <string>Preprocessing</string>
+     </attribute>
+     <widget class="QLineEdit" name="lineEdit_InsertPeak">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>550</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_11">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>550</y>
+        <width>171</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Insert identified peak</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_AddIdentifiedPeak">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>590</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarFddSvp" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>80</y>
+        <width>750</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_DisplayIdentifiedPeaks">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>580</y>
+        <width>61</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_PlotFddSvp" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>110</y>
+        <width>750</width>
+        <height>420</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_DeleteIdentifiedPeak">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>640</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_SubmitIdentifiedPeaks">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>740</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_ClearIdentifiedPeaks">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>690</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_12">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>550</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sampling Frequency</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_13">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>580</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Decimation Factor</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_SamplingFrequency">
+      <property name="geometry">
+       <rect>
+        <x>980</x>
+        <y>550</y>
+        <width>41</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DecimationFactor">
+      <property name="geometry">
+       <rect>
+        <x>980</x>
+        <y>580</y>
+        <width>41</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_Detrend">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>550</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Detrend</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_FddSvp">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>710</y>
+        <width>180</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Run FDDsvp</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_15">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>71</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Figures</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_Decimation">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>580</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Decimation</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_FDD">
+     <attribute name="title">
+      <string>FDD</string>
+     </attribute>
+     <widget class="QPushButton" name="pushButton_RunFdd">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>710</y>
+        <width>180</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Run FDD</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_OriginalFdd">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>560</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Original FDD</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_Efdd">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>600</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>EFDD</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_Fsdd">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>640</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>FSDD</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_PlotFdd" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>750</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_FddFigures1">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>685</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_9">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>660</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Available Plots</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarFdd" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>70</y>
+        <width>750</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_16">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Figures</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_FddFigures2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>720</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <zorder>content_PlotFdd</zorder>
+     <zorder>pushButton_RunFdd</zorder>
+     <zorder>checkBox_OriginalFdd</zorder>
+     <zorder>checkBox_Efdd</zorder>
+     <zorder>checkBox_Fsdd</zorder>
+     <zorder>comboBox_FddFigures1</zorder>
+     <zorder>label_justdisplay_9</zorder>
+     <zorder>content_ToolbarFdd</zorder>
+     <zorder>label_justdisplay_16</zorder>
+     <zorder>comboBox_FddFigures2</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_FDD_res">
+     <attribute name="title">
+      <string>FDD_res</string>
+     </attribute>
+     <widget class="QLabel" name="label_justdisplay_21">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>80</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Frequencies:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_22">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>20</y>
+        <width>60</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>FDD</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_23">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>270</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>EFDD</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_24">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>530</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>FSDD</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_25">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>280</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Frequencies:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_26">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>540</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Frequencies:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_27">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>400</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Damping:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_28">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>660</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Damping:</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_FreqEfdd">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>300</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DampEfdd">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>420</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DampFsdd">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>680</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_FreqFsdd">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>560</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_FreqFdd">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_ModeFdd">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>60</y>
+        <width>450</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_29">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>40</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode Shapes:</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_ModeEfdd">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>310</y>
+        <width>450</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_ModeFsdd">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>570</y>
+        <width>450</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_49">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>290</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode Shapes:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_50">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>550</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode Shapes:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_FDD_geom">
+     <attribute name="title">
+      <string>FDD_geom</string>
+     </attribute>
+     <widget class="QLabel" name="label_justdisplay_18">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Figures</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarFddGeom" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>70</y>
+        <width>750</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_19">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>660</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Available Plots</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_PlotFddGeom" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>750</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_FddFiguresGeom1">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>720</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_FddFiguresGeom2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>755</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_FddFiguresGeom3">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>685</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DeformedValuesFDD">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>100</y>
+        <width>210</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Node</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dx</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dz</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_DeformedShapeFDD">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>700</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Deformed shape</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_39">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>660</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor x</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_xFDD">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>660</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_yFDD">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>690</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_42">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>690</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor y</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_ValuesOnPlotFDD">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>740</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Show values on plot</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_zFDD">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>720</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_ArrowScaleFactorFDD">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>750</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_43">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>750</y>
+        <width>181</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Arrow Scale Factor</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_44">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>720</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor z</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_SSI">
+     <attribute name="title">
+      <string>SSI</string>
+     </attribute>
+     <widget class="QWidget" name="content_PlotSsi" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>750</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarSsi" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>70</y>
+        <width>750</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_SsiDat">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>640</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>SSI-dat</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_SsiCov">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>600</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>SSI-cov</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_SsiFigures">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>685</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_10">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>660</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Available Plots</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_RunSsi">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>710</y>
+        <width>180</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Run SSI</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_17">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Figures</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_52">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>530</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Time shifts:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_TimeShifts">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>530</y>
+        <width>31</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>15</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_53">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>500</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Max order</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_MaxOrder">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>500</y>
+        <width>31</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_MinOrder">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>470</y>
+        <width>31</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_54">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>470</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Min order</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Lim0">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>230</y>
+        <width>35</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0.01</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_55">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>230</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Lim1">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>270</y>
+        <width>35</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0.05</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_56">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>270</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Damping</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Lim2">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>310</y>
+        <width>35</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0.02</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_57">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>310</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mode shape</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_Lim3">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>350</y>
+        <width>35</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0.1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_58">
+      <property name="geometry">
+       <rect>
+        <x>900</x>
+        <y>350</y>
+        <width>85</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Remove poles</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_59">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>170</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Limit values for stability requirements</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_60">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>430</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rest parameters</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_SSI_res">
+     <attribute name="title">
+      <string>SSI_res</string>
+     </attribute>
+     <widget class="QLabel" name="label_justdisplay_30">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>490</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Frequencies:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_31">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>70</y>
+        <width>130</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SSI-COV</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_ModeSsiCov">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>140</y>
+        <width>450</width>
+        <height>210</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DampSsiCov">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>260</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_32">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Damping:</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_FreqSsiDat">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>510</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DampSsiDat">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>630</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_ModeSsiDat">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>510</y>
+        <width>450</width>
+        <height>210</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_33">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>100</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Frequencies:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_34">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>610</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Damping:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_35">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>450</y>
+        <width>130</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SSI-DAT</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_FreqSsiCov">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>450</width>
+        <height>90</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_36">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>120</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode Shapes:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_51">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>490</y>
+        <width>110</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Mode Shapes:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_SSI_geom">
+     <attribute name="title">
+      <string>SSI_geom</string>
+     </attribute>
+     <widget class="QComboBox" name="comboBox_SsiFiguresGeom1">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>685</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_SsiFiguresGeom2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>720</y>
+        <width>140</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_37">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>660</y>
+        <width>140</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Available Plots</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_PlotSsiGeom" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>750</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_38">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>40</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Figures</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="content_ToolbarSsiGeom" native="true">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>70</y>
+        <width>750</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(238, 238, 238);</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_ValuesOnPlotSSI">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>740</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Show values on plot</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_DeformedShapeSSI">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>700</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Deformed shape</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_45">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>690</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor y</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_46">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>660</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor x</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_47">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>720</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Dimension Scale Factor z</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_justdisplay_48">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>750</y>
+        <width>181</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Arrow Scale Factor</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_xSSI">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>660</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_ArrowScaleFactorSSI">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>750</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_ySSI">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>690</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_DimensionScaleFactor_zSSI">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>720</y>
+        <width>31</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_DeformedValuesSSI">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>100</y>
+        <width>210</width>
+        <height>550</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="columnCount">
+       <number>4</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>Node</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dx</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dy</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>dz</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

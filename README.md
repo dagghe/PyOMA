@@ -64,7 +64,7 @@ To import PyOMA in your workspace, simply type:
 
 # Workflow
 
-![title](Images/FlowChartPyomaNEW.png)
+![title](Images/Fig1.png)
 
 FDD:
 
@@ -107,7 +107,7 @@ PyOMA_GUI is a graphical user interface software developed in [PyQt5](https://py
 - Dynamic identification algorithms with visualization of the results (graphs, modal shapes);
 - Post-processing tabs and output exportation functionalities;
 
-![`PyOMA_GUI` general overview.](paper/Fig2.png)
+![`PyOMA_GUI` general overview.](Images/Fig2.png)
 
 The executable file PyOMA_GUI.exe for windows is already available [here](PyOMA_GUI/PyOMA_GUI.exe).
 
