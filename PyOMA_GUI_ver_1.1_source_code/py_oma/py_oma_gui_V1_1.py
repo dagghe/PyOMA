@@ -475,6 +475,7 @@ class UI(QMainWindow):
         _toolWidget = NavigationToolbar(self.plotWidgetGeometry, self)
         self.layGeometryTool.addWidget(_toolWidget)
         self.buttonCreateGeometry.setEnabled(False)
+        plt.close('all')
 
     # Clicker for submit channels in DOF
     def clicker_submit_channels(self):
@@ -643,6 +644,7 @@ class UI(QMainWindow):
             self.buttonSubmitIdentifiedPeaks.setEnabled(False)
             self.buttonRunFDD.setEnabled(True)
             self.buttonRunSSI.setEnabled(True)
+            plt.close('all')
 
     # Clicker for running the FDD
     def clicker_run_fdd(self):
@@ -706,6 +708,7 @@ class UI(QMainWindow):
         _toolWidget = NavigationToolbar(self.plotWidgetFdd, self)
         self.layFddTool.addWidget(_toolWidget)
         self.buttonRunFDD.setEnabled(False)
+        plt.close('all')
 
     # Clicker to display FDD results
     def plot_fig_fdd(self):
@@ -924,6 +927,7 @@ class UI(QMainWindow):
         _toolWidget = NavigationToolbar(self.plotWidgetSsi, self)
         self.laySsiTool.addWidget(_toolWidget)
         self.buttonRunSSI.setEnabled(False)
+        plt.close('all')
 
     # Clicker to display SSI results
     def plot_fig_ssi(self):
