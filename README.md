@@ -5,7 +5,9 @@ This software was created to perform output-only modal identification (Operation
 OMA allows the experimental estimation of the modal parameters (natural frequencies, mode shapes, damping ratios) of a structure from measurements of the vibration response in operational condition.
 
 
+# PyOMA Team Presentation
 
+[![youtube_video_PyOMAteam_presentation](Images/intro_youtube.png)](https://www.youtube.com/watch?v=yidIv0Xunts)
 
 ## What is PyOMA?
 PyOMA is a python module that allows to perform OMA on ambient vibration measurments datasets.
