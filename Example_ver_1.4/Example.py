@@ -13,7 +13,7 @@ import pandas as pd
 import seaborn as sns
 from scipy import signal
 import matplotlib.pyplot as plt
-import pyOMA as oma
+import PyOMA as oma
 
 
 # ======== PRE-PROCESSING =====================================================
