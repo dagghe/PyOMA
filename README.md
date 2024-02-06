@@ -1,3 +1,13 @@
+# ATTENTION!!!
+Dear users please check out our new release, [pyOMA2](https://github.com/dagghe/pyOMA2).
+
+The main novelties introduced by the new release are:
+- **Comprehensive Code Revision:** The underlying algorithms have undergone a thorough overhaul for more efficient and robust performance.
+- **Specialized Class Structures:** Includes specialized classes for handling both single-setup and multi-setup measurements, enhancing data management versatility.
+- **Interactive Plotting Feature:** An optional interactive plotting capability allows users to select desired modes directly from the algorithm's output plots, improving user interaction and mode selection.
+- **Geometry Definition Option:** Additional feature for optional geometry definition to enable plotting and animation of mode shapes, providing a comprehensive understanding of results post-analysis.
+
+This repository will be discontinued when the final release of pyOMA2 will be out!
 
 # PyOMA
 This software was created to perform output-only modal identification (Operational Modal Analysis, OMA).
