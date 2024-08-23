@@ -1,6 +1,9 @@
 
 # PyOMA_GUI
 
+## DOWNLOAD LINK FOR THE EXE FILE
+[https://drive.google.com/file/d/1ntMYp_stn7LJTivDn3t8_iDzHicifwlh/view?usp=sharing](https://drive.google.com/file/d/1ntMYp_stn7LJTivDn3t8_iDzHicifwlh/view?usp=sharing) 
+
 ## Update version 1.1
 * Minor bugs fixed in selecting identified peak frequencies;
 * Minor bugs fixed in scale factor for visualizing deformed shape;
