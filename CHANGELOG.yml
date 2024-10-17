@@ -1,0 +1,43 @@
+- BugFix PyOMA_ver_1.4:
+  Error: "IndexError: invalid index into scalar variable. (ln:1149)"
+  Problem Description: >
+    Sometimes meanFi is just returning a numpy.complex128 (9.12e-9+1.6e-09j), 
+    but line 1149 tries to index-into meanFi for division (meanFi / meanFi[_idx6]).
+    This caused an 'IndexError' because numpy.complex128 is not an indexable
+    (enumerable) type.
+  Change:
+    - ln:24: >
+      +get_type = lambda object: str(type(object)).split("'")[1]
+    - Debug/Output:
+      Inserts: [1103, 1104, 1113, 1114, 1155, 1158]
+      changes: ln1149->ln1159 because of debug-inserts and blanklines for get_type()
+    - ln:1157: >
+      +meanFi = [meanFi] if not 'array' in get_type(meanFi) else meanFi
+  Solution Description: >
+    On line 1157 we check if meanFi is already an 'array' (enumerable), and do nothing
+    if it is. If it is not an 'array' then we surround it with square brackets,
+    making it enumerable. In all of my testing when meanFi is not an array _idx6
+    has been 0 (the first element of an enumerable), and so far this has been 
+    sufficient!
+- BugFix PyOMA_ver_1.4:
+  Warning: >
+    VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences
+    (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes)
+    is deprecated. If you meant to do this, you must specify 'dtype=object' when
+    creating the ndarray.   Fi = np.array(Fi_E)
+  Change:
+    ln:1266: +', dtype=object'
+  Solution Description: >
+    Create an ndarray from ragged nested sequences explicitly to prevent warning.
+- BugFix PyOMA_ver_1.4:
+  Warning: >
+    /tmp/tmp.FK7RnbM0cj/accelerometer_analysis/lib/pyoma.py:906: RuntimeWarning: 
+    More than 20 figures have been opened. Figures created through the pyplot interface
+    (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory.
+    (To control this warning, see the rcParam `figure.max_open_warning`).
+    Consider using `matplotlib.pyplot.close()`.
+  Change:
+    ln:907: +'plt.close()'
+  Solution Description: >
+    Close the `matplotlib.pyplot.figure` explicitly after saving the extracted data to fig, ax.
+

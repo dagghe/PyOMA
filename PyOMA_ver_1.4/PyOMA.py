@@ -12,6 +12,7 @@ from scipy import signal
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from matplotlib.ticker import (MultipleLocator, FormatStrFormatter)
+# from lib.reply import reply  # Reply can be found https://github.com/briskbear/pymod (v0.1.0)
 import matplotlib.patches as patches
 import seaborn as sns
 import mplcursors
@@ -19,6 +20,8 @@ import mplcursors
 # =============================================================================
 # FUNZIONI PRONTE
 # =============================================================================
+
+get_type = lambda object: str(type(object)).split("'")[1]  # Return the type as a string. eg. 'list' not "<class 'list'>"
 
 def MaC(Fi1,Fi2):
     '''
@@ -901,6 +904,7 @@ def FDDsvp(data, fs, df=0.01, pov=0.5, window='hann'):
     
     # Plot of the singular values in log scale
     fig, ax = plt.subplots()
+    plt.close()
     for _i in range(nch):
     #    ax.semilogy(_f, S_val[_i, _i]) # scala log
         ax.plot(_f[:], 10*np.log10(S_val[_i, _i])) # decibel
@@ -1097,15 +1101,19 @@ def EFDDmodEX(FreQ, Results, ndf=2, MAClim=0.85, sppk=3, npmax=20,
         # checking if the MAC (with respect to the reference) satisfy 
         # MAC > MAClim
         # (N.B. this part of code should probably be improved!)
-        while MaC(_fi, S_vec_n[0,:, index[_l] + _p]) > MAClim: # here I check the FIRST singular vector
+        mac_out = MaC(_fi, S_vec_n[0,:, index[_l] + _p])
+#         reply(f'(S_vec_n[0...]) MAC > MAClim?: {mac_out} > {MAClim}', 'i', 'info.log')  # Debug: will 'while' run?
+        while mac_out > MAClim and (index[_l] + _p) < len(S_vec_n[0,:]): # here I check the FIRST singular vector
                  # collecting the singular values for EFDD
                 SDOFsval[(index[_l] + _p)] = S_val[0,0, index[_l] + _p]
                 # collecting singular values and applying FSDD
                 SDOFsval1[(index[_l] + _p)] = _fi.conj().T@PSD_matr[:,:, index[_l] + _p]@_fi 
                 # and the singular vectors
                 SDOFsvec[:,(index[_l] + _p)] = S_vec_n[0,:, index[_l] + _p] 
-                _p +=1
-        while MaC(_fi, S_vec_n[1,:, index[_l] + _p]) > MAClim: # here I check the SECOND singular vector
+                _p += 1
+        mac_out = MaC(_fi, S_vec_n[1,:, index[_l] + _p]) 
+#         reply(f'(S_vec_n[1...]) MAC > MAClim?: {mac_out} > {MAClim}', 'i', 'info.log')  # Debug: will 'while' run?
+        while mac_out > MAClim: # here I check the SECOND singular vector
                 SDOFsval[(index[_l] + _p)] = S_val[1,1, index[_l] + _p] # si aggiungono i relativi Singular values alla SFOF bell
                 SDOFsval1[(index[_l] + _p)] = _fi.conj().T@PSD_matr[:,:, index[_l] + _p]@_fi # si aggiungono i relativi Singular values alla SFOF bell
                 SDOFsvec[:,(index[_l] + _p)] = S_vec_n[1,:, index[_l] + _p] # e anche i relativi Singular vectors alla SFOF bell
@@ -1146,6 +1154,9 @@ def EFDDmodEX(FreQ, Results, ndf=2, MAClim=0.85, sppk=3, npmax=20,
         _idx6 = np.argmax(abs(meanFi))
         # Normalised mode shape (unity disp)
 #        meanFireal = meanFi.real/meanFi[_idx6].real 
+        # reply(meanFi, 'i', 'info.log')  # Debug: what does meanFi LOOK LIKE?
+        meanFi = [meanFi] if not 'array' in get_type(meanFi) else meanFi
+        # reply(meanFi, 'i', 'info.log')  # Debug: Is meanFi and array now?!
         meanFi = meanFi/meanFi[_idx6] 
         
         
@@ -1253,7 +1264,7 @@ $\xi$ = %.2f%s'''% (fn_EFDD, float(xi_EFDD)*100,"%"),transform=_ax4.transAxes)
     
     Freq = np.array(Freq_E)
     Damp = np.array(Damp_E)
-    Fi = np.array(Fi_E)
+    Fi = np.array(Fi_E, dtype=object)
 
     Results={}
     Results['Frequencies'] = Freq
